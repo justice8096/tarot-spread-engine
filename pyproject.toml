@@ -1,0 +1,28 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tarot-spread-engine"
+version = "0.1.0"
+description = "Spread definitions and card drawing engine for tarot readings"
+requires-python = ">=3.12"
+license = "MIT"
+dependencies = ["tarot-deck-reader>=0.1.0"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "pytest-cov", "mypy", "ruff"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/tarot_spread_engine"]
+
+[tool.mypy]
+strict = true
+python_version = "3.12"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
